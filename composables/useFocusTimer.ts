@@ -1,8 +1,8 @@
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { useRealtime } from './useRealtime'
-import { useActivityStore } from '~/stores/activity.store'
-import { useUserStore } from '~/stores/user.store'
-import { useTaskStore } from '~/stores/task.store'
+import { useActivityStore } from '../stores/activity.store'
+import { useUserStore } from '../stores/user.store'
+import { useTaskStore } from '../stores/task.store'
 
 interface FocusTimerState {
   taskId: string | null

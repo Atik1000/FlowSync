@@ -1,11 +1,10 @@
+import { TaskColumn } from './../types/domain';
+import { useActivityStore } from '../stores/activity.store';
+import { useRealtime } from './useRealtime';
+import { useTaskStore } from '../stores/task.store';
+import { useUserStore } from '../stores/user.store';
+import { useBoardStore } from './../stores/board.store';
 import { storeToRefs } from 'pinia'
-import type { TaskColumn } from '~/types/domain'
-import { useBoardStore } from '~/stores/board.store'
-import { useTaskStore } from '~/stores/task.store'
-import { useRealtime } from './useRealtime'
-import { useActivityStore } from '~/stores/activity.store'
-import { useUserStore } from '~/stores/user.store'
-
 export function useBoard() {
   const boardStore = useBoardStore()
   const taskStore = useTaskStore()

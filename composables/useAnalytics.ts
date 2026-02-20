@@ -1,6 +1,6 @@
 import { storeToRefs } from 'pinia'
-import { useAnalyticsStore } from '~/stores/analytics.store'
-import { useTaskStore } from '~/stores/task.store'
+import { useAnalyticsStore } from '../stores/analytics.store'
+import { useTaskStore } from '../stores/task.store'
 
 export function useAnalytics() {
   const analyticsStore = useAnalyticsStore()

@@ -1,9 +1,10 @@
 import { storeToRefs } from 'pinia'
-import type { TaskColumn, TaskPriority } from '~/types/domain'
-import { useTaskStore } from '~/stores/task.store'
-import { useActivityStore } from '~/stores/activity.store'
-import { useUserStore } from '~/stores/user.store'
+import type { TaskColumn, TaskPriority } from '../types/domain'
+import { useTaskStore } from '../stores/task.store'
+import { useActivityStore } from '../stores/activity.store'
+import { useUserStore } from '../stores/user.store'
 import { useRealtime } from './useRealtime'
+import { $fetch } from 'ofetch'
 
 interface CreateTaskInput {
   title: string
@@ -28,9 +29,9 @@ export function useTask() {
   async function fetchTasks() {
     isLoading.value = true
     try {
-      const { data } = await useFetch('/api/tasks')
-      if (data.value && Array.isArray(data.value)) {
-        taskStore.setTasks(data.value)
+      const data = await $fetch('/api/tasks')
+      if (Array.isArray(data)) {
+        taskStore.setTasks(data)
       }
     } finally {
       isLoading.value = false

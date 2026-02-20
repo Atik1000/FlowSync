@@ -9,10 +9,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
 
-  css: ['~/assets/css/main.css'],
+  css: ['./assets/css/main.css'],
 
+  // Disable in-dev TS checker plugin (vite-plugin-checker) to avoid ESM/require crash.
+  // Use `npm run lint:types` to run full type-checking instead.
   typescript: {
-    typeCheck: true
+    typeCheck: false
   },
 
   app: {

@@ -1,7 +1,9 @@
-import { defineNuxtPlugin } from '#app'
-import { useRealtime } from '~/composables/useRealtime'
-import { useToast } from '~/composables/useToast'
-import { useUserStore } from '~/stores/user.store'
+import { defineNuxtPlugin } from 'nuxt/app'
+import { useRealtime } from '../composables/useRealtime'
+import { useToast } from '../composables/useToast'
+import { useUserStore } from '../stores/user.store'
+
+declare const process: any
 
 export default defineNuxtPlugin(() => {
   if (process.server) return
