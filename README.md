@@ -1,3 +1,4 @@
+
 # FlowSync – Smart Team Productivity Board
 
 FlowSync is a **production-style Nuxt 3/4 SaaS application** that helps teams manage work in a **real-time, analytics-driven productivity board**.  
