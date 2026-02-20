@@ -4,10 +4,11 @@
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-    <AppToast />
+    <ClientOnly>
+      <SharedAppToast />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
-// Components are auto-registered via the components directory.
 </script>
