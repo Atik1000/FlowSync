@@ -1,4 +1,4 @@
-import type { Activity } from '~/types/domain'
+import type { Activity } from '../../types/domain'
 
 let activities: Activity[] = []
 

@@ -26,15 +26,7 @@
 
     <section class="grid grid-cols-1 gap-4 md:grid-cols-2">
       <HeatmapGrid :heatmap="completionHeatmap" />
-      <AppCard
-        title="Focus time distribution"
-        subtitle="Approximate minutes spent in focus sessions across tasks."
-      >
-        <p class="text-xs text-slate-500 dark:text-slate-400">
-          For brevity, this view reuses the weekly series. In a production version, this would be a separate chart
-          showing how focus minutes are distributed across tasks or days.
-        </p>
-      </AppCard>
+      <FocusTimeChart :series="series" />
     </section>
   </div>
 </template>
@@ -44,6 +36,7 @@ import AppCard from '~/components/shared/AppCard.vue'
 import ScoreCard from '~/components/analytics/ScoreCard.vue'
 import ProductivityChart from '~/components/analytics/ProductivityChart.vue'
 import HeatmapGrid from '~/components/analytics/HeatmapGrid.vue'
+import FocusTimeChart from '~/components/analytics/FocusTimeChart.vue'
 import { useAnalytics } from '~/composables/useAnalytics'
 
 definePageMeta({

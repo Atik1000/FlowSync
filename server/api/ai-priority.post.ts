@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import type { TaskPriority } from '~/types/domain'
+import type { TaskPriority } from '../../types/domain'
 
 interface AiPriorityInput {
   title: string

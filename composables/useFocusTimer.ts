@@ -2,6 +2,7 @@ import { computed, onBeforeUnmount, ref } from 'vue'
 import { useRealtime } from './useRealtime'
 import { useActivityStore } from '~/stores/activity.store'
 import { useUserStore } from '~/stores/user.store'
+import { useTaskStore } from '~/stores/task.store'
 
 interface FocusTimerState {
   taskId: string | null
@@ -23,6 +24,7 @@ export function useFocusTimer() {
   const { broadcast } = useRealtime()
   const activityStore = useActivityStore()
   const userStore = useUserStore()
+  const taskStore = useTaskStore()
 
   const remainingSeconds = computed(() => state.value.remainingSeconds)
   const isRunning = computed(() => state.value.isRunning)
@@ -49,13 +51,14 @@ export function useFocusTimer() {
     state.value.isRunning = true
 
     const userName = userStore.displayName
+    const task = taskStore.tasks.find((t) => t.id === taskId)
 
     broadcast({
       type: 'focus:started',
       payload: {
         taskId,
         userName,
-        taskTitle: '' // filled by caller if needed
+        taskTitle: task?.title
       }
     })
 
@@ -66,6 +69,10 @@ export function useFocusTimer() {
         clearIntervalTimer()
         state.value.isRunning = false
         state.value.remainingSeconds = 0
+        if (state.value.taskId) {
+          const minutes = Math.round(durationSeconds / 60)
+          taskStore.updateFocusTime(state.value.taskId, minutes)
+        }
       } else {
         state.value.remainingSeconds -= 1
       }

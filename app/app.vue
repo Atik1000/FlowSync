@@ -1,11 +1,13 @@
 <template>
-  <div class="page-container">
+  <div>
     <NuxtRouteAnnouncer />
-    <AppLayoutShell />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
     <AppToast />
   </div>
 </template>
 
 <script setup lang="ts">
-const AppLayoutShell = resolveComponent('AppLayoutShell')
+// Components are auto-registered via the components directory.
 </script>

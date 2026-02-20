@@ -47,7 +47,7 @@ import AppButton from '~/components/shared/AppButton.vue'
 import { useUserStore } from '~/stores/user.store'
 
 definePageMeta({
-  layout: false
+  layout: 'auth'
 })
 
 const name = ref('')
