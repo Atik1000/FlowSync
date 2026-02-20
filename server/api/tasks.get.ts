@@ -43,3 +43,8 @@ export function setTasks(next: Task[]) {
   tasks = next
 }
 
+export function getTasks() {
+  return tasks
+}
+
+
