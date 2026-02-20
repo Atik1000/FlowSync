@@ -59,6 +59,6 @@ body {
 }
 
 .scroll-y-soft {
-  @apply overflow-y-auto scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700 scrollbar-track-transparent;
+  @apply overflow-y-auto;
 }
 
