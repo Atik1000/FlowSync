@@ -5,6 +5,7 @@
     subtitle="Let FlowSync suggest the right priority based on title, description, and deadline."
   >
     <form
+      id="create-task-form"
       class="space-y-4"
       @submit.prevent="handleSubmit"
     >
@@ -77,23 +78,24 @@
         <span class="font-semibold">AI suggestion:</span>
         {{ aiReasoning }}
       </p>
-
-      <template #footer>
-        <AppButton
-          variant="ghost"
-          type="button"
-          @click="internalModel = false"
-        >
-          Cancel
-        </AppButton>
-        <AppButton
-          type="submit"
-          :loading="isSubmitting"
-        >
-          Create task
-        </AppButton>
-      </template>
     </form>
+
+    <template #footer>
+      <AppButton
+        variant="ghost"
+        type="button"
+        @click="internalModel = false"
+      >
+        Cancel
+      </AppButton>
+      <AppButton
+        form="create-task-form"
+        type="submit"
+        :loading="isSubmitting"
+      >
+        Create task
+      </AppButton>
+    </template>
   </AppModal>
 </template>
 

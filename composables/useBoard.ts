@@ -1,4 +1,4 @@
-import { TaskColumn } from './../types/domain';
+import type { TaskColumn } from '../types/domain'
 import { useActivityStore } from '../stores/activity.store';
 import { useRealtime } from './useRealtime';
 import { useTaskStore } from '../stores/task.store';
